@@ -32,3 +32,11 @@ fun test(file: String, solution: (List<String>) -> Int) {
     println("Result test file $file: $result")
     check(result == expectedResult)
 }
+
+fun runPart(part: Int, day: String, solution: (List<String>) -> Int) {
+    test("${day}/p${part}", solution)
+
+    val realInput = readInput("${day}/p${part}_real")
+    val realResult = solution(realInput)
+    println("Part $part result: $realResult")
+}
